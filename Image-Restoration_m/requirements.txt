@@ -1,0 +1,8 @@
+streamlit
+Pillow
+torch
+torchvision
+scikit-image
+natsort
+opencv-python
+pyngrok
