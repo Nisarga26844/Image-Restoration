@@ -8,7 +8,6 @@ from natsort import natsorted
 import cv2
 import os
 from runpy import run_path
-from pyngrok import ngrok
 
 # Define the image processing function
 def process_image(uploaded_image, task):
@@ -79,12 +78,6 @@ def main():
             st.image(result_image, caption="Processed Image", use_column_width=True)
             st.write("Processing complete!")
 
-# Create a tunnel to the Streamlit app using ngrok
-public_url = ngrok.connect(port='8501')
-
 # Run the app
 if __name__ == "__main__":
     main()
-
-# Print the URL to access the Streamlit app
-print(f"Streamlit app is running at: {public_url}")
