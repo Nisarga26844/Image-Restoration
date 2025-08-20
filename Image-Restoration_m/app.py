@@ -86,12 +86,12 @@ def main():
         st.write("")
         st.write("Processing...")
 
-        if st.button('Process'):
+        if st.button('Restore Image'):
             result_image = process_image(uploaded_image, task)
 
             # Show result
             st.image(result_image, caption="Processed Image", use_column_width=True)
-            st.write("Processing complete!")
+            st.write("Restore completed!")
 
 # ============================
 # Run Streamlit App
