@@ -91,7 +91,7 @@ def main():
 
             # Show result
             st.image(result_image, caption="Processed Image", use_column_width=True)
-            st.write("Restore completed!")
+            st.write("Restored Image")
 
 # ============================
 # Run Streamlit App
