@@ -69,13 +69,13 @@ def main():
         st.write("")
         st.write("Processing...")
 
-        if st.button('Process'):
+        if st.button('Restore'):
             # Process the image
             result_image = process_image(uploaded_image, task)
 
             # Display the result image
             st.image(result_image, caption="Processed Image", use_container_width=True)
-            st.write("Processing complete!")
+            st.write("Restore completed!")
 
 # Run the app
 if __name__ == "__main__":
