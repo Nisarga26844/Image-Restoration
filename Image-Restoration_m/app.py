@@ -4,11 +4,8 @@ import torch
 import torch.nn.functional as F
 import torchvision.transforms.functional as TF
 from skimage import img_as_ubyte
-from natsort import natsorted
-import cv2
 import os
 from runpy import run_path
-from pyngrok import ngrok
 
 # Define the image processing function
 def process_image(uploaded_image, task):
@@ -38,7 +35,8 @@ def process_image(uploaded_image, task):
     # Pad the input if not multiple of 8
     img_multiple_of = 8
     h, w = input_.shape[2], input_.shape[3]
-    H, W = ((h + img_multiple_of) // img_multiple_of) * img_multiple_of, ((w + img_multiple_of) // img_multiple_of) * img_multiple_of
+    H = ((h + img_multiple_of) // img_multiple_of) * img_multiple_of
+    W = ((w + img_multiple_of) // img_multiple_of) * img_multiple_of
     padh = H - h if h % img_multiple_of != 0 else 0
     padw = W - w if w % img_multiple_of != 0 else 0
     input_ = F.pad(input_, (0, padw, 0, padh), 'reflect')
@@ -79,12 +77,6 @@ def main():
             st.image(result_image, caption="Processed Image", use_container_width=True)
             st.write("Processing complete!")
 
-# Create a tunnel to the Streamlit app using ngrok
-public_url = ngrok.connect(port='8501')
-
 # Run the app
 if __name__ == "__main__":
     main()
-
-# Print the URL to access the Streamlit app
-print(f"Streamlit app is running at: {public_url}")
