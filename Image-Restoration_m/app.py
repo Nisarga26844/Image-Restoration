@@ -67,15 +67,15 @@ def main():
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image", use_container_width=True)
         st.write("")
-        st.write("Processing...")
 
         if st.button('Restore'):
-            # Process the image
-            result_image = process_image(uploaded_image, task)
+            with st.spinner("Processing..."):
+                # Process the image
+                result_image = process_image(uploaded_image, task)
 
             # Display the result image
             st.image(result_image, caption="Processed Image", use_container_width=True)
-            st.write("Restore completed!")
+            st.success("Restore completed!")
 
 # Run the app
 if __name__ == "__main__":
