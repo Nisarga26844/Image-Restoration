@@ -55,7 +55,7 @@ def process_image(uploaded_image, task):
 
 # Create the Streamlit app
 def main():
-    st.title("Image Restoration Demo")
+    st.title("Image Restoration ")
     st.sidebar.header("Select Task")
 
     # Task selection (Deblurring, Denoising, or Deraining)
